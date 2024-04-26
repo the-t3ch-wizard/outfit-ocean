@@ -16,3 +16,4 @@ export const customerSigninSchema = z.object({
     message: "Password should be atleast 8 character"
   })
 })
+

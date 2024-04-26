@@ -10,6 +10,7 @@ import Anchor from "./Anchor";
 import QuantityButton from "./QuantityButton";
 import ProductsCard from "./ProductsCard";
 import ProductsDetails from "./ProductDetails";
+import RandomProducts from "./RandomProducts";
 
 export {
     AuthLayout,
@@ -24,4 +25,5 @@ export {
     ProductsCard,
     ProductsDetails,
     QuantityButton,
+    RandomProducts,
 }

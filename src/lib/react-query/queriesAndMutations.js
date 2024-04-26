@@ -4,10 +4,12 @@ import {
   useQueryClient,
   useInfiniteQuery,
 } from '@tanstack/react-query'
-import { getRecentProducts, signinCustomerAccount, signoutCustomerAccount, signupCustomerAccount } from '../appwrite/api'
+import { getProductById, getRandomProducts, getRecentProducts, signinCustomerAccount, signoutCustomerAccount, signupCustomerAccount } from '../appwrite/api'
 
 const QUERY_KEY = {
   getRecentProducts: "getRecentProducts",
+  getRandomProducts: "getRandomProducts",
+  getProductById: "getProductById",
 }
 
 export const useSigninCustomerAccount = () => {
@@ -34,3 +36,17 @@ export const useGetRecentProducts = () => {
     queryFn: getRecentProducts,
   })
 }
+
+export const useGetRandomProducts = () => {
+  return useQuery({
+    queryKey: [QUERY_KEY.getRandomProducts],
+    queryFn: getRandomProducts,
+  })
+}
+
+export const useGetProductById = () => {
+  return useMutation({
+    mutationFn: (payload) => getProductById(payload)
+  })
+}
+

@@ -17,7 +17,7 @@ export default function Home() {
     return (
       <div className=' min-h-screen w-full flex justify-center items-center'>
         
-        <ul className=' flex flex-wrap justify-start items-start gap-4 p-8'>
+        <ul className=' flex flex-wrap justify-start items-start gap-4 p-4'>
           {products.documents.map((product, index) => <li key={index}>
             <ProductsCard product={product} />
           </li>)}

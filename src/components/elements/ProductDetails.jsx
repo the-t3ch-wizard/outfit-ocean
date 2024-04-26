@@ -1,10 +1,8 @@
-import { useUserContext } from '@/context/AuthContext'
 import React from 'react'
 import { Description, QuantityButton, Title } from '.';
 import { Button } from '../ui/button';
 
 export default function ProductsDetails({ product }) {
-  const { user } = useUserContext();
 
   if (product){
     return (
@@ -18,7 +16,6 @@ export default function ProductsDetails({ product }) {
           />
         </div>
         <div className=' w-[50%] flex flex-col gap-2 min-h-96 justify-start items-start p-4'>
-          <Description description={user.shopName} classname={` text-primary/80 uppercase`} />
           <Description description={product.title} classname={` text-primary text-2xl`} />
           <Description description={`₹ `+product.price+` M.R.P.`} classname={` text-primary text-xl`} />
           <Description description={`(incl. of all taxes)`} classname={` text-primary`} />

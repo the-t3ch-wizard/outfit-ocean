@@ -103,7 +103,6 @@ export async function getRecentProducts(){
         Query.limit(20)
       ]
     )
-    console.log(products);
     if (!products) throw Error;
     return products;
 
@@ -111,3 +110,40 @@ export async function getRecentProducts(){
     console.log(error);
   }
 }
+
+export async function getRandomProducts(){
+  try {
+    
+    const products = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.productCollectionId,
+      [
+        Query.offset(0),
+        Query.limit(10)
+      ]
+    )
+    if (!products) throw Error;
+    return products;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getProductById(payload){
+  try {
+    
+    const product = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.productCollectionId,
+      payload.id
+    );
+    console.log('product', product);
+    if (!product) throw Error;
+    return product;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+

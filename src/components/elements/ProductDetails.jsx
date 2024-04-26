@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Description, QuantityButton, Title } from '.';
 import { Button } from '../ui/button';
+import { useRecoilState } from 'recoil';
+import { cartProductAtom } from '@/store/atoms/atoms';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductsDetails({ product }) {
+
+  const navigate = useNavigate();
+
+  const [quantity, setQuantity] = useState(1);
+
+  const [cartProduct, setCartProduct] = useRecoilState(cartProductAtom);
+
+  const addToCart = () => {
+    const productData = {
+      id: product.$id,
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      imageUrl: product.imageUrl,
+      sellerId: product.sellerId,
+      stock: product.stock,
+      quantity: quantity,
+    }
+    console.log(productData);
+    setCartProduct([...cartProduct, productData]);
+  }
+
+  const BuyHandler = () => {
+    addToCart();
+    navigate('/checkout');
+  }
 
   if (product){
     return (
@@ -24,11 +53,11 @@ export default function ProductsDetails({ product }) {
             <div className=' w-[90%] border-b border-border'></div>
           </div>
           
-          <QuantityButton />
+          <QuantityButton quantity={quantity} setQuantity={setQuantity} />
   
           <div className=' flex flex-col gap-4 justify-between items-center w-full'>
-            <Button className='w-full'>Add to Cart</Button>
-            <Button className='w-full' variant="outline">Proceed to Buy</Button>
+            <Button className='w-full' onClick={addToCart}>Add to Cart</Button>
+            <Button className='w-full' variant="outline" onClick={BuyHandler}>Proceed to Buy</Button>
           </div>
         </div>
   

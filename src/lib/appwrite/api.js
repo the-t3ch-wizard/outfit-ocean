@@ -138,7 +138,6 @@ export async function getProductById(payload){
       appwriteConfig.productCollectionId,
       payload.id
     );
-    console.log('product', product);
     if (!product) throw Error;
     return product;
 

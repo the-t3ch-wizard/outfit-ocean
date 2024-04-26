@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Description } from '.';
 
-export default function QuantityButton() {
-  const [quantity, setQuantity] = useState(1);
+export default function QuantityButton({ quantity, setQuantity }) {
 
   return (
     <div className=' flex justify-center items-center gap-2 p-1'>

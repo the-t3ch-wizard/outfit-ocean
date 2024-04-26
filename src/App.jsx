@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AuthLayout, RootLayout } from './components/elements'
 import { Toaster } from "@/components/ui/toaster"
-import { Cart, Explore, Home, Product, Signin, Signup } from './pages'
+import { Cart, Checkout, Explore, Home, Product, Signin, Signup } from './pages'
 
 export default function App() {
   return (
@@ -20,6 +20,7 @@ export default function App() {
           <Route path='/explore' element={<Explore />} />
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
           {/* <Route path='/saved' element={<Saved />} /> */}
           {/* <Route path='/people' element={<People />} /> */}
           {/* <Route path='/profile/:id' element={<Profile />} />

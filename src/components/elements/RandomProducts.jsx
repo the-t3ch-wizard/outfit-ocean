@@ -7,14 +7,14 @@ export default function RandomProducts() {
   
   if (isGettingProducts){
     return (
-      <div>
+      <div className=' w-full min-h-screen flex justify-center items-center'>
         <Loader />
       </div>
     )
   } else {
     return (
       <div className=' w-full p-4 flex justify-start items-start flex-wrap gap-4'>
-        {products.documents.map((product) => <ProductsCard product={product} />)}
+        {products.documents.map((product, index) => <ProductsCard key={index} product={product} />)}
       </div>
     )
   }

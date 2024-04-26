@@ -7,10 +7,6 @@ export const sidebarContent = [{
   route: '/explore',
   label: 'Explore',
 }, {
-  imageUrl: '/images/star.svg',
-  route: '/wishlist',
-  label: 'Wishlist',
-}, {
   imageUrl: '/images/cart.svg',
   route: '/my-cart',
   label: 'My Cart',

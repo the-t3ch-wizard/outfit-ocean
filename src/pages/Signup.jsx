@@ -39,7 +39,7 @@ export default function Signup() {
   })
 
   async function onSubmit(values) {
-    console.log(values);
+    
     const userAccount = await createUserAccount(values);
     if (!userAccount){
       return toast({

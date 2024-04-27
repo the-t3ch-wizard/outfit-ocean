@@ -21,6 +21,7 @@ export default function App() {
           <Route path='/product/:id' element={<Product />} />
           <Route path='/my-cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
+          
           {/* <Route path='/saved' element={<Saved />} /> */}
           {/* <Route path='/people' element={<People />} /> */}
           {/* <Route path='/profile/:id' element={<Profile />} />

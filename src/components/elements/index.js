@@ -12,6 +12,7 @@ import ProductsCard from "./ProductsCard";
 import ProductsDetails from "./ProductDetails";
 import RandomProducts from "./RandomProducts";
 import CartProductDetail from "./CartProductDetail";
+import SignoutButton from "./SignoutButton";
 
 export {
     AuthLayout,
@@ -28,4 +29,5 @@ export {
     QuantityButton,
     RandomProducts,
     CartProductDetail,
+    SignoutButton,
 }

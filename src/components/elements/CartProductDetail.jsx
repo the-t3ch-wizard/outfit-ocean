@@ -3,10 +3,11 @@ import { Description, Title } from '.'
 import { Link } from 'react-router-dom'
 
 export default function CartProductDetail({ product }) {
+
   return (
     <div className=' w-full h-56 p-2 rounded-md flex justify-start items-center border border-border'>
       
-      <div className=' w-[20%] h-full'>
+      <div className=' w-[20%] h-full flex justify-start items-center'>
         <Link to={`/product/${product.id}`}>
           <img
             src={product.imageUrl}
@@ -22,6 +23,7 @@ export default function CartProductDetail({ product }) {
         </Link>
         <Description description={product.title} classname={` max-h-[30%] overflow-hidden`} />
         <Description description={`Quantity: `+product.quantity} classname={` max-h-[30%] overflow-hidden`} />
+        <Description description={`Price: `+product.price} classname={` max-h-[30%] overflow-hidden`} />
       </div>
 
     </div>

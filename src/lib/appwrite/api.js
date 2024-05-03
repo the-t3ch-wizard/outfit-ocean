@@ -63,10 +63,11 @@ export async function signinCustomerAccount(payload){
   }
 }
 
-export async function signoutCustomerAccount(payload){
+export async function signoutCustomerAccount(){
   try {
     
     const signedOut = await account.deleteSession('current');
+    console.log('session', signedOut);
     return signedOut;
 
   } catch (error) {
@@ -146,3 +147,76 @@ export async function getProductById(payload){
   }
 }
 
+export async function getProductStockById(payload){
+  try {
+    
+    const product = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.productCollectionId,
+      payload.id
+    );
+    if (!product) throw Error;
+    return product.stock;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function buyNowProduct(payload){
+  try {
+    let orderPlaced = 0;
+    const user = await account.get();
+    if (!user) throw Error;
+    for (let i=0; i<payload.length; i++){
+      if (payload[i].quantity > payload[i].stock) continue;
+      const order = await databases.createDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.orderCollectionId,
+        ID.unique(),
+        {
+          productId: payload[i].id,
+          productTitle: payload[i].title,
+          customerId: user.$id,
+          quantity: payload[i].quantity,
+          price: payload[i].price
+        }
+      )
+      if (!order) throw Error;
+      const newStock = payload[i].stock-payload[i].quantity;
+      const updatedProduct = await databases.updateDocument(
+        appwriteConfig.databaseId,
+        appwriteConfig.productCollectionId,
+        payload[i].id,
+        {
+          stock: newStock
+        }
+      )
+      if (!updatedProduct) throw Error;
+      orderPlaced++;
+    }
+    return orderPlaced;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getRecentOrders(){
+  try {
+    
+    const user = await account.get();
+    const orders = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.orderCollectionId,
+      [
+        Query.equal('customerId', user.$id)
+      ]
+    )
+    // console.log('orders', orders);
+    if (!orders) throw Error;
+    return orders.documents;
+
+  } catch (error) {
+    console.log(error);
+  }
+}

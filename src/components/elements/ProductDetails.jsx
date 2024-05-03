@@ -4,8 +4,11 @@ import { Button } from '../ui/button';
 import { useRecoilState } from 'recoil';
 import { cartProductAtom } from '@/store/atoms/atoms';
 import { useNavigate } from 'react-router-dom';
+import { useToast } from '../ui/use-toast';
 
 export default function ProductsDetails({ product }) {
+
+  const { toast } = useToast();
 
   const navigate = useNavigate();
 
@@ -24,8 +27,16 @@ export default function ProductsDetails({ product }) {
       stock: product.stock,
       quantity: quantity,
     }
-    console.log(productData);
-    setCartProduct([...cartProduct, productData]);
+    const currentCartProduct = cartProduct;
+    if (currentCartProduct.length===0){
+      setCartProduct([productData]);
+    } else {
+      // add to cart without creating duplicate
+      setCartProduct([...cartProduct, productData]);
+    }
+    toast({
+      title: "Added to cart 👌"
+    })
   }
 
   const BuyHandler = () => {

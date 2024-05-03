@@ -13,6 +13,7 @@ import ProductsDetails from "./ProductDetails";
 import RandomProducts from "./RandomProducts";
 import CartProductDetail from "./CartProductDetail";
 import SignoutButton from "./SignoutButton";
+import OrdersList from "./OrdersList";
 
 export {
     AuthLayout,
@@ -30,4 +31,5 @@ export {
     RandomProducts,
     CartProductDetail,
     SignoutButton,
+    OrdersList,
 }

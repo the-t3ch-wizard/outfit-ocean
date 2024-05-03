@@ -5,6 +5,8 @@ import Explore from "./Explore";
 import Product from "./Product";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
+import BuyNow from "./BuyNow";
+import Orders from "./Orders";
 
 export {
     Home,
@@ -14,4 +16,6 @@ export {
     Product,
     Cart,
     Checkout,
+    BuyNow,
+    Orders,
 }

@@ -1,12 +1,14 @@
+import { useUserContext } from '@/context/AuthContext';
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
+import { Loader } from '.';
 
 export default function AuthLayout() {
-  const authenticated = false;
-
+  const isAuthenticated = false;
+  
   return (
     <>
-      {authenticated ? (
+      {isAuthenticated ? (
         <Navigate to='/' />
       ) : (
         <div className=' w-full h-screen flex justify-center items-center bg-background'>
@@ -15,9 +17,11 @@ export default function AuthLayout() {
             src='/images/collection-of-pictures.jpeg'
             alt='auth layout image'
             className='w-[0px] opacity-0 md:opacity-100 md:w-[50%] transition-all h-screen object-cover bg-no-repeat select-none'
+            draggable='false'
           />
         </div>
       )}
     </>
   )
+
 }

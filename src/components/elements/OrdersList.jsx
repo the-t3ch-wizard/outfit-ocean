@@ -16,7 +16,7 @@ export default function OrdersList() {
   if (isGettingRecentOrders){
     return (
       <div className='w-full flex justify-center items-center'>
-        <Loader />
+        <Loader /> 
       </div>
     )
   } else {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { AuthLayout, RootLayout } from './components/elements'
 import { Toaster } from "@/components/ui/toaster"
-import { BuyNow, Cart, Checkout, Explore, Home, Orders, Product, Signin, Signup } from './pages'
+import { BuyNow, Cart, Checkout, Explore, Home, NotFound, Orders, Product, Signin, Signup } from './pages'
 
 export default function App() {
   return (
@@ -30,6 +30,8 @@ export default function App() {
           {/* <Route path='/profile/:id' element={<Profile />} />
           <Route path='/update-profile/:id' element={<UpdateProfile />} /> */}
         </Route>
+
+        <Route path='/*' element={<NotFound />} />
 
       </Routes>
 

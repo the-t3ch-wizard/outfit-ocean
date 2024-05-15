@@ -44,6 +44,8 @@ export default function CartedProductList() {
           <p>Product Title</p>
           <p>Product Price</p>
         </div>
+
+        <div className=' w-full border-t border-border'></div>
         
         <ul className=' w-full'>
           {cartedProduct.map((product, index) => (
@@ -60,6 +62,8 @@ export default function CartedProductList() {
             </li>
           ))}
         </ul>
+
+        <div className=' w-full border-t border-border'></div>
 
         <div className=' w-full flex justify-between text-xl'>
           <p>Total Products: {cartedProduct.reduce((totalProduct, product) => { return totalProduct+(product.quantity) }, 0)}</p>

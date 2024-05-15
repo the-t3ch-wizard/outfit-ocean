@@ -27,7 +27,7 @@ export default function OrdersList() {
             <li className=' w-full flex gap-4'>
               <p className=' w-[80%] overflow-hidden'>{o.productTitle}</p>
               <p>{o.quantity}</p>
-              <p>{o.price}</p>
+              <p>₹{o.price}</p>
             </li>
           ))}
         </ul>

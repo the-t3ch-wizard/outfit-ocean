@@ -1,4 +1,4 @@
-import { CartProductDetail, Title } from '@/components/elements';
+import { CartProductDetail, NotFound, Title } from '@/components/elements';
 import { Button } from '@/components/ui/button';
 import { cartProductAtom } from '@/store/atoms/atoms'
 import React from 'react'
@@ -21,9 +21,13 @@ export default function Cart() {
       <Title title={`My Cart`} classname={` p-2 text-3xl`} />
 
       <ul className=' w-full flex flex-col gap-4'>
-        {cartProduct.map((product, index) => <li key={index}>
-          <CartProductDetail product={product} />
-        </li>)}
+        {
+          cartProduct.length===0 ? 
+          <NotFound /> :
+          cartProduct.map((product, index) => <li key={index}>
+            <CartProductDetail product={product} />
+          </li>)
+        }
       </ul>
 
       {cartProduct.length>0 ? <Button onClick={BuyHandler} className=' w-40 p-5'>Proceed to Buy</Button> : null}

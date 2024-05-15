@@ -7,6 +7,7 @@ import Cart from "./Cart";
 import Checkout from "./Checkout";
 import BuyNow from "./BuyNow";
 import Orders from "./Orders";
+import NotFound from "./NotFound";
 
 export {
     Home,
@@ -18,4 +19,5 @@ export {
     Checkout,
     BuyNow,
     Orders,
+    NotFound,
 }

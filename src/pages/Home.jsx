@@ -15,7 +15,7 @@ export default function Home() {
     )
   } else {
     return (
-      <div className=' min-h-screen w-full flex justify-center items-center'>
+      <div className=' min-h-screen w-full flex justify-start items-start'>
         
         <ul className=' flex flex-wrap justify-start items-start gap-4 p-4'>
           {products.documents.map((product, index) => <li key={index}>

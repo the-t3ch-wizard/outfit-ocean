@@ -14,6 +14,7 @@ import RandomProducts from "./RandomProducts";
 import CartProductDetail from "./CartProductDetail";
 import SignoutButton from "./SignoutButton";
 import OrdersList from "./OrdersList";
+import NotFound from "./NotFound";
 
 export {
     AuthLayout,
@@ -32,4 +33,5 @@ export {
     CartProductDetail,
     SignoutButton,
     OrdersList,
+    NotFound,
 }

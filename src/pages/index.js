@@ -8,6 +8,7 @@ import Checkout from "./Checkout";
 import BuyNow from "./BuyNow";
 import Orders from "./Orders";
 import NotFound from "./NotFound";
+import Search from "./Search";
 
 export {
     Home,
@@ -20,4 +21,5 @@ export {
     BuyNow,
     Orders,
     NotFound,
+    Search,
 }

@@ -4,7 +4,7 @@ import {
   useQueryClient,
   useInfiniteQuery,
 } from '@tanstack/react-query'
-import { buyNowProduct, getProductById, getRandomProducts, getRecentOrders, getRecentProducts, signinCustomerAccount, signoutCustomerAccount, signupCustomerAccount } from '../appwrite/api'
+import { buyNowProduct, getOldestProducts, getProductById, getRecentOrders, getRecentProducts, signinCustomerAccount, signoutCustomerAccount, signupCustomerAccount } from '../appwrite/api'
 
 const QUERY_KEY = {
   getRecentProducts: "getRecentProducts",
@@ -37,10 +37,10 @@ export const useGetRecentProducts = () => {
   })
 }
 
-export const useGetRandomProducts = () => {
+export const useGetOldestProducts = () => {
   return useQuery({
-    queryKey: [QUERY_KEY.getRandomProducts],
-    queryFn: getRandomProducts,
+    queryKey: [QUERY_KEY.getOldestProducts],
+    queryFn: getOldestProducts,
   })
 }
 

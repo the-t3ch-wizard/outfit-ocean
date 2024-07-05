@@ -16,11 +16,11 @@ export default function Cart() {
   }
 
   return (
-    <div className=' w-full min-h-screen flex justify-start items-start p-4 gap-4 flex-col'>
+    <div className=' w-full min-h-screen flex justify-start items-start p-4 gap-8 flex-col'>
 
       <Title title={`My Cart`} classname={` p-2 text-3xl`} />
 
-      <ul className=' w-full flex flex-col gap-4'>
+      <ul className=' w-full flex flex-col gap-2 sm:gap-6'>
         {
           cartProduct.length===0 ? 
           <NotFound /> :
@@ -30,7 +30,7 @@ export default function Cart() {
         }
       </ul>
 
-      {cartProduct.length>0 ? <Button onClick={BuyHandler} className=' w-40 p-5'>Proceed to Buy</Button> : null}
+      {cartProduct.length>0 ? <Button onClick={BuyHandler} className=' w-40 ml-4'>Proceed to Buy</Button> : null}
 
     </div>
   )

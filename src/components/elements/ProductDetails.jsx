@@ -17,7 +17,7 @@ export default function ProductsDetails({ product }) {
   const [cartProduct, setCartProduct] = useRecoilState(cartProductAtom);
 
   const addToCart = () => {
-    const productData = {
+    let productData = {
       id: product.$id,
       title: product.title,
       description: product.description,
@@ -27,13 +27,37 @@ export default function ProductsDetails({ product }) {
       stock: product.stock,
       quantity: quantity,
     }
-    const currentCartProduct = cartProduct;
-    if (currentCartProduct.length===0){
+    let currentCartProduct = cartProduct;
+    if (currentCartProduct.length === 0){
       setCartProduct([productData]);
     } else {
-      // add to cart without creating duplicate
-      setCartProduct([...cartProduct, productData]);
+      let newProduct = true;
+      let newCartProduct = [];
+      for (let index=0; index<currentCartProduct.length; index++){
+        if (currentCartProduct.at(index).id === productData.id){
+          newProduct = false;
+          let newQuantity = quantity+currentCartProduct.at(index).quantity;
+          let updatedProduct = {
+            id: product.$id,
+            title: product.title,
+            description: product.description,
+            price: product.price,
+            imageUrl: product.imageUrl,
+            sellerId: product.sellerId,
+            stock: product.stock,
+            quantity: newQuantity,
+          }
+          newCartProduct.push(updatedProduct);
+        } else {
+          newCartProduct.push(currentCartProduct.at(index));
+        }
+      }
+      if (newProduct){
+        newCartProduct.push(productData);
+      }
+      setCartProduct(newCartProduct);
     }
+
     toast({
       title: "Added to cart 👌"
     })
@@ -46,29 +70,55 @@ export default function ProductsDetails({ product }) {
 
   if (product){
     return (
-      <div className=' w-full bg-card border p-4 border-border flex justify-start items-start rounded-md'>
+      <div className='w-full bg-card p-4 flex justify-start items-start'>
         
-        <div className=' w-[50%] min-h-96'>
-          <img
-            src={product.imageUrl}
-            alt='product image'
-            className=' rounded-md '
-          />
-        </div>
-        <div className=' w-[50%] flex flex-col gap-2 min-h-96 justify-start items-start p-4'>
-          <Description description={product.title} classname={` text-primary text-2xl`} />
-          <Description description={`₹ `+product.price+` M.R.P.`} classname={` text-primary text-xl`} />
-          <Description description={`(incl. of all taxes)`} classname={` text-primary`} />
-          
-          <div className=' w-full flex justify-center items-center'>
-            <div className=' w-[90%] border-b border-border'></div>
+        <div className='sm:hidden flex flex-col justify-center items-center'>
+          <div className='w-full h-96'>
+            <img
+              src={product.imageUrl}
+              alt='product image'
+              className='rounded-sm w-full h-full object-cover'
+            />
           </div>
-          
-          <QuantityButton quantity={quantity} setQuantity={setQuantity} />
-  
-          <div className=' flex flex-col gap-4 justify-between items-center w-full'>
-            <Button className='w-full' onClick={addToCart}>Add to Cart</Button>
-            <Button className='w-full' variant="outline" onClick={BuyHandler}>Proceed to Buy</Button>
+
+          <div className=' w-full flex flex-col gap-2 h-96 justify-start items-start py-4'>
+            <Title title={product.title} classname={` text-primary text-2xl`} />
+
+            <div className='w-full'>
+              <Description description={`M.R.P: `+`₹ `+product.price} classname={` py-4 text-primary text-2xl border-b border-border`} />
+            </div>
+            
+            <QuantityButton quantity={quantity} setQuantity={setQuantity} />
+    
+            <div className=' flex flex-col gap-4 justify-between items-center w-full'>
+              <Button className='w-full' onClick={addToCart}>Add to Cart</Button>
+              <Button className='w-full' variant="outline" onClick={BuyHandler}>Proceed to Buy</Button>
+            </div>
+          </div>
+        </div>
+
+        <div className='hidden sm:flex justify-start items-start'>
+          <div className=' w-[50%] min-h-96'>
+            <img
+              src={product.imageUrl}
+              alt='product image'
+              className='rounded-sm'
+            />
+          </div>
+
+          <div className=' w-[50%] flex flex-col gap-2 min-h-96 justify-start items-start px-4'>
+            <Title title={product.title} classname={` text-primary text-2xl`} />
+
+            <div className='w-full'>
+              <Description description={`M.R.P: `+`₹ `+product.price} classname={` py-4 text-primary text-2xl border-b border-border`} />
+            </div>
+            
+            <QuantityButton quantity={quantity} setQuantity={setQuantity} />
+    
+            <div className=' flex flex-col gap-4 justify-between items-center w-full'>
+              <Button className='w-full' onClick={addToCart}>Add to Cart</Button>
+              <Button className='w-full' variant="outline" onClick={BuyHandler}>Proceed to Buy</Button>
+            </div>
           </div>
         </div>
   

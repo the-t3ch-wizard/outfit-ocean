@@ -7,7 +7,7 @@ export default function Anchor({ content, path }) {
   return (
     <div onClick={() => {
       navigate(path);
-    }} className=' hover:underline cursor-pointer'>
+    }} className='underline cursor-pointer'>
         {content}
     </div>
   )

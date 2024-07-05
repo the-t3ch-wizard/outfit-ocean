@@ -101,7 +101,7 @@ export async function getRecentProducts(){
       appwriteConfig.productCollectionId,
       [
         Query.orderDesc("$createdAt"),
-        Query.limit(20)
+        Query.limit(5)
       ]
     )
     if (!products) throw Error;
@@ -112,7 +112,7 @@ export async function getRecentProducts(){
   }
 }
 
-export async function getRandomProducts(){
+export async function getOldestProducts(){
   try {
     
     const products = await databases.listDocuments(
@@ -120,7 +120,7 @@ export async function getRandomProducts(){
       appwriteConfig.productCollectionId,
       [
         Query.offset(0),
-        Query.limit(10)
+        Query.limit(5)
       ]
     )
     if (!products) throw Error;
@@ -215,6 +215,16 @@ export async function getRecentOrders(){
     // console.log('orders', orders);
     if (!orders) throw Error;
     return orders.documents;
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getProductByName(){
+  try {
+    
+    
 
   } catch (error) {
     console.log(error);

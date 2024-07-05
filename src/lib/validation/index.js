@@ -17,3 +17,23 @@ export const customerSigninSchema = z.object({
   })
 })
 
+export const checkoutFormSchema = z.object({
+  email: z.string().email(),
+  name: z.string().min(1, {
+    message: "Name should be atleast 1 character"
+  }),
+  country: z.string().min(1, {
+    message: "Country should be atleast 1 character"
+  }),
+  address: z.string().min(1, {
+    message: "Address should be atleast 1 character"
+  }),
+  town: z.string().min(1, {
+    message: "Town should be atleast 1 character"
+  }),
+  state: z.string().min(1, {
+    message: "State should be atleast 1 character"
+  }),
+  postcode: z.string()
+})
+

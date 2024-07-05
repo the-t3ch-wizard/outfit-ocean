@@ -1,7 +1,8 @@
 import React from 'react'
 import { Title } from '.'
 
-export default function NotFound() {
+export default function NotFound({ label }) {
+
   return (
     <div className=' w-full flex flex-col justify-center items-center'>
       <img
@@ -9,7 +10,7 @@ export default function NotFound() {
         alt='not found image'
         className=''
       />
-      <Title title={`The cart is empty`} classname={` font-medium text-3xl`} />
+      <Title title={label || `The cart is empty`} classname={` font-medium text-3xl`} />
     </div>
   )
 }

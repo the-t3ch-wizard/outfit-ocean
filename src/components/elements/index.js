@@ -10,11 +10,18 @@ import Anchor from "./Anchor";
 import QuantityButton from "./QuantityButton";
 import ProductsCard from "./ProductsCard";
 import ProductsDetails from "./ProductDetails";
-import RandomProducts from "./RandomProducts";
+import OldestProducts from "./OldestProducts";
 import CartProductDetail from "./CartProductDetail";
 import SignoutButton from "./SignoutButton";
 import OrdersList from "./OrdersList";
 import NotFound from "./NotFound";
+import SearchList from "./SearchList";
+import Topbar from "./Topbar";
+import RecentProductSection from "./RecentProductSection";
+import HeroSection from "./HeroSection";
+import CheckoutProductDetail from "./CheckoutProductDetail";
+import CheckoutForm from "./CheckoutForm";
+import Footer from "./Footer";
 
 export {
     AuthLayout,
@@ -29,9 +36,16 @@ export {
     ProductsCard,
     ProductsDetails,
     QuantityButton,
-    RandomProducts,
+    OldestProducts,
     CartProductDetail,
     SignoutButton,
     OrdersList,
     NotFound,
+    SearchList,
+    Topbar,
+    RecentProductSection,
+    HeroSection,
+    CheckoutProductDetail,
+    CheckoutForm,
+    Footer,
 }

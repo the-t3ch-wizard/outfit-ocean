@@ -5,3 +5,7 @@ export const cartProductAtom = atom({
   default: []
 })
 
+export const buyNowAvailableAtom = atom({
+  key: "buyNowAvailableAtom",
+  default: false
+})

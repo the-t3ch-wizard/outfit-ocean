@@ -71,10 +71,9 @@ export default function Signup() {
 
   return (
     <div className=' w-[65%] md:w-[100%] transition-all h-screen flex flex-col gap-4 justify-center items-center'>
-      <div className=' w-full flex flex-col gap-1 justify-center items-center'>
-        <Logo className='m-2' />
-        <Title title='Create your new account' />
-        <Description description='To use Outfit Ocean, Please enter your details' />
+      <div className=' w-full flex flex-col gap-3 justify-center items-center'>
+        <Title title='Sign up' />
+        <Description description='Please enter your details' classname={`text-center`} />
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full md:w-[350px] flex flex-col gap-3">
@@ -133,7 +132,7 @@ export default function Signup() {
           </Button>
         </form>
       </Form>
-      <div className=' flex flex-wrap gap-1'>
+      <div className=' flex flex-wrap gap-1 justify-center items-center'>
         <Description description='Already have an account?' />
         <Anchor content='Sign in' path='/signin' />
       </div>

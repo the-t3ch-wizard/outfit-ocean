@@ -3,6 +3,7 @@ import { useGetRecentOrders } from '@/lib/react-query/queriesAndMutations'
 import React, { useEffect, useState } from 'react'
 
 export default function OrdersList() {
+
   const { mutateAsync: getRecentOrder, isPending: isGettingRecentOrders } = useGetRecentOrders();
 
   const [order, setOrder] = useState([]);

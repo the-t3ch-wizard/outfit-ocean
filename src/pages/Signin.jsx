@@ -20,6 +20,7 @@ import { useSigninCustomerAccount } from '@/lib/react-query/queriesAndMutations'
 import { customerSigninSchema } from '@/lib/validation'
 
 export default function Signin() {
+  
   const navigate = useNavigate();
   const { toast } = useToast()
   const { checkAuthUser, isPending: isCustomerLoading } = useUserContext();
@@ -59,10 +60,9 @@ export default function Signin() {
 
   return (
     <div className=' w-[65%] md:w-[100%] transition-all h-screen flex flex-col gap-4 justify-center items-center'>
-      <div className=' w-full flex flex-col gap-1 justify-center items-center'>
-        <Logo className='m-2' />
-        <Title title='Sign in to your account' />
-        <Description description='Welcome Back! Please enter your details' />
+      <div className=' w-full flex flex-col gap-3 justify-center items-center'>
+        <Title title='Sign in' />
+        <Description description='Welcome Back! Please enter your details' classname={`text-center`} />
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full md:w-[350px] flex flex-col gap-3">
@@ -108,7 +108,7 @@ export default function Signin() {
           </Button>
         </form>
       </Form>
-      <div className=' flex flex-wrap gap-1'>
+      <div className=' flex flex-wrap gap-1 justify-center items-center'>
         <Description description="Don't have an account?" />
         <Anchor content='Sign up' path='/signup' />
       </div>

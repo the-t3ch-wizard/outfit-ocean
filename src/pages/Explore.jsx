@@ -1,4 +1,4 @@
-import { RandomProducts } from '@/components/elements'
+import { OldestProducts } from '@/components/elements'
 import React from 'react'
 
 export default function Explore() {
@@ -6,7 +6,7 @@ export default function Explore() {
   return (
     <div className=' w-full min-h-screen'>
 
-      <RandomProducts />
+      <OldestProducts />
 
     </div>
   )

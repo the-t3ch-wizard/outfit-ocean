@@ -1,30 +1,21 @@
-import { Loader } from '@/components/elements';
-import ProductsCard from '@/components/elements/ProductsCard';
-import { useGetRecentProducts } from '@/lib/react-query/queriesAndMutations'
-import React from 'react'
+import { HeroSection, OldestProducts, RecentProductSection } from "@/components/elements";
 
 export default function Home() {
 
-  const { data: products, isPending: isGettingProducts } = useGetRecentProducts();
+  return (
+    <div className=' min-h-screen w-full bg-background flex justify-center items-center flex-col'>
 
-  if (isGettingProducts){
-    return (
-      <div className=' w-full min-h-screen flex justify-center items-center'>
-        <Loader />
-      </div>
-    )
-  } else {
-    return (
-      <div className=' min-h-screen w-full flex justify-start items-start'>
-        
-        <ul className=' flex flex-wrap justify-start items-start gap-4 p-4'>
-          {products.documents.map((product, index) => <li key={index}>
-            <ProductsCard product={product} />
-          </li>)}
-        </ul>
-        
-      </div>
-    )
-  }
+      <HeroSection />
+
+      <RecentProductSection />
+      
+      <OldestProducts />
+
+      <HeroSection />
+
+      <RecentProductSection />
+      
+    </div>
+  )
 
 }

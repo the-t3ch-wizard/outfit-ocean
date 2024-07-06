@@ -1,5 +1,5 @@
-import React from 'react'
-import { CartProductDetail } from '.';
+import React, { useEffect, useState } from 'react'
+import { CartProductDetail, Title } from '.';
 import { buyNowAvailableAtom, cartProductAtom } from '@/store/atoms/atoms'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { Button } from '../ui/button';
@@ -47,6 +47,16 @@ export default function CheckoutProductDetail({ className }) {
     })
   }
 
+  const [totalPrice, setTotalPrice] = useState(0);
+  
+  useEffect(() => {
+    let temp = 0;
+    cartedProduct.map((product) => {
+      temp += (product.price * product.quantity);
+    })
+    setTotalPrice(temp);
+  }, [cartedProduct])
+
   return (
     <div className={`flex flex-col gap-6 ${className}`}>
 
@@ -55,6 +65,8 @@ export default function CheckoutProductDetail({ className }) {
           <CartProductDetail product={product} className={` w-full `} detailsClassname={` pl-8`} />
         </li>)
       }
+      
+      <Title title={`Total Price is ${totalPrice}`} classname={` px-4`} />
 
       {
         buynowAvailable ?

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className=' w-full h-40 flex justify-between items-start px-20'>
+    <div className=' w-full h-40 flex justify-between items-start sm:px-20 px-8'>
       
       <div className='flex flex-col gap-2'>
         <a>
@@ -19,7 +19,7 @@ export default function Footer() {
         </a>
       </div>
 
-      <div className='flex flex-col gap-2'>
+      <div className='sm:flex flex-col gap-2 hidden'>
         <a>
           Return Your Order
         </a>
@@ -34,7 +34,7 @@ export default function Footer() {
         </a>
       </div>
 
-      <div className='flex flex-col gap-2'>
+      <div className='sm:flex flex-col gap-2 hidden'>
         <a>
           Privacy policy
         </a>

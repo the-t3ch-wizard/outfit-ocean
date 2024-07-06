@@ -16,11 +16,11 @@ export default function CartedProductList() {
       
       {
         cartedProduct.length>0 ?
-        <div className='w-full flex justify-start items-start'>
+        <div className='w-full flex sm:flex-row flex-col justify-start items-start'>
 
-          <CheckoutProductDetail className={`w-[70%]`} />
+          <CheckoutProductDetail className={`sm:w-[70%] w-full`} />
 
-          <CheckoutForm className={`w-[30%]`} />
+          <CheckoutForm className={`sm:w-[30%] w-full`} />
 
         </div> :
         <NotFound />

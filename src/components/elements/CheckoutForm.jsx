@@ -55,7 +55,7 @@ export default function CheckoutForm({ className }) {
   }
 
   return (
-    <div className={`flex justify-center items-center ${className}`}>
+    <div className={`flex justify-center items-center sm:p-0 px-2 py-6 ${className}`}>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-full md:w-[350px] flex flex-col gap-4">
